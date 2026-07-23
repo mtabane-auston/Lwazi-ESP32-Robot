@@ -158,10 +158,16 @@ void loop()
         Serial.println("Pushing the right joystick up");
       motorB(255);
       }
+      //stop motors if joysticks are in the deadzone
+    if ( Ps4.data.analog.stick.ly < 50 && Ps4.data.analog.stick.ly > -50 ){
+      motorA(0);
+      }
 
-    
+    if ( Ps4.data.analog.stick.ry < 50 && Ps4.data.analog.stick.ry > -50 ){
+      motorB(0);
+      }
 
   
 
-    delay(200);
+    delay(50);
 }
